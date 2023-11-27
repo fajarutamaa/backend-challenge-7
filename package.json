@@ -1,0 +1,32 @@
+{
+  "name": "backend-challenge-7",
+  "version": "1.0.0",
+  "description": "debugging, websocket, and node mailer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Fajar Dwi Utomp",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "prisma": "^5.6.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.6.0",
+    "@sentry/node": "^7.81.1",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mustache": "^4.2.0",
+    "nodemailer": "^6.9.7",
+    "socket.io": "^4.7.2"
+  }
+}
