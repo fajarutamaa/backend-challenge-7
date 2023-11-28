@@ -24,16 +24,15 @@ Create an `.env` file in your project root folder and add your variables. See `.
 
 ## API Endpoints
 
-| Methods | URLs                            | Actions                  |
-| ------- | ------------------------------- | ------------------------ |
-| POST    | /auth/register                  | Register account         |
-| POST    | /auth/login                     | Login account            |
-| POST    | /auth/password-reset            | Send password reset link |
-| POST    | /auth/password-reset/:id/:token | Reset user password      |
-| GET     | /users/view-profile             | View detail profile user |
-| PUT     | /users/change-photo             | Change profile photo     |
-| DELETE  | /users/:username                | Delete user              |
-
+| Methods | URLs                   | Actions                  |
+| ------- | ---------------------- | ------------------------ |
+| POST    | /auth/register         | Register account         |
+| POST    | /auth/login            | Login account            |
+| POST    | /password-reset        | Send password reset link |
+| POST    | /reset-password/:token | Reset user password      |
+| GET     | /users/view-profile    | View detail profile user |
+| PUT     | /users/change-photo    | Change profile photo     |
+| DELETE  | /users/:username       | Delete user              |
 
 ## Error Handling
 

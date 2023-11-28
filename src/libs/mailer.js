@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer')
 const { SERVICE, MAIL_SMTP, PASS_SMTP, SENDER } = process.env
+const { templateReset, templateWelcome, templateNotif } = require('../templates/template.html.js')
 
 const transporter = nodemailer.createTransport({
     service: SERVICE,
@@ -17,18 +18,12 @@ async function UserActivation(email, activationLink) {
         from: SENDER,
         to: email,
         subject: 'Welcome 🚀 - Verify Your Account',
-        html: `
-        <p>Hii👋, welcome to Binar Academy!</p>
-        <p>Congratulations on becoming a part of our community. To activate your account, please click the link below:</p>
-        <a href="${activationLink}">Activate Your Account</a>
-        <p>If you did not sign up for Binar Academy, you can safely ignore this email.</p>
-        <p>Thank you, and we hope you have a fantastic experience with Binar Academy!</p>        
-        `,
+        html: templateWelcome(activationLink)
     }
-    
+
     try {
         const info = await transporter.sendMail(mailOptions)
-        console.log('Welcome email sent response : ' + info.response)
+        console.log('response : ' + info.response)
         return true
     } catch (error) {
         console.error(error)
@@ -42,15 +37,12 @@ async function NotifActivation(email) {
         from: SENDER,
         to: email,
         subject: 'Congratulations ✨ - Verify Your Account Successfully',
-        html: `
-        <p>Hii👋, Congratulations your account is verified! </p>
-        <p>Thank you, and we hope you have a fantastic experience with Binar Academy!</p>        
-        `,
+        html: templateNotif()
     }
-    
+
     try {
         const info = await transporter.sendMail(mailOptions)
-        console.log('Welcome email sent response : ' + info.response)
+        console.log('response : ' + info.response)
         return true
     } catch (error) {
         console.error(error)
@@ -58,4 +50,24 @@ async function NotifActivation(email) {
     }
 }
 
-module.exports = { UserActivation, NotifActivation }
+async function SendResetEmail(email, resetLink) {
+
+    const mailOptions = {
+        from: SENDER,
+        to: email,
+        subject: 'Information 🔔 - Reset Your Password Account',
+        html: templateReset(resetLink),
+    }
+
+    try {
+        const info = await transporter.sendMail(mailOptions)
+        console.log('response : ' + info.response)
+        return true
+    } catch (error) {
+        console.error(error)
+        return false
+    }
+}
+
+
+module.exports = { UserActivation, NotifActivation, SendResetEmail }

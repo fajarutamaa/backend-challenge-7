@@ -10,7 +10,7 @@ async function Authenticate(req, res, next) {
         let response = ResponseTemplate(null, 'user unauthorized', null, 401)
         return res.status(401).json(response)
     }
-
+    
     try {
         const user = await jwt.verify(authorization, process.env.JWT_SECRET_KEY)
         req.users = user
