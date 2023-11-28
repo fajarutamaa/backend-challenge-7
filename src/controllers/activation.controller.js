@@ -5,19 +5,18 @@ const { InternalServerError } = require('../server/server.error')
 const prisma = new PrismaClient
 
 
-async function ActivateAccount(req, res, next) {
+async function ActivateAccount(req, res) {
+
     const { id } = req.params
 
     try {
-
-        // Check if the decoded token matches the provided token
         if (id !== id) {
             return res.status(400).json({
                 message: 'Invalid activation account',
                 status: 400,
             })
         }
-
+        
         // Update the user's is_verified status in the database
         const user = await prisma.users.update({
             where: {
