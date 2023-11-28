@@ -21,7 +21,7 @@ Compile and hot-reload for development:
 
 ## Getting Started
 
-this project is running on Railway App :
+this project is running on Railway App `click on the badge` :
 
 [![Railway Badge](https://img.shields.io/badge/Railway-0B0D0E?logo=railway&logoColor=fff&style=for-the-badge)](https://backend-challenge-7.up.railway.app/)
 
@@ -35,9 +35,9 @@ Create an `.env` file in your project root folder and add your variables. See `.
 | ------- | ---------------------- | ------------------------ |
 | POST    | /auth/register         | Register account         |
 | POST    | /auth/login            | Login account            |
-| POST    | /password-reset        | Send password reset link |
+| POST    | /forgot-password       | Send password reset link |
 | POST    | /reset-password/:token | Reset user password      |
-| GET     | /users/view-profile    | View detail profile user |
+| GET     | /users/:username       | View detail profile user |
 | PUT     | /users/change-photo    | Change profile photo     |
 | DELETE  | /users/:username       | Delete user              |
 
