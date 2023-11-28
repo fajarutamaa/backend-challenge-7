@@ -1,3 +1,4 @@
+[![test](https://github.com/fajarutamaa/backend-challenge-7/actions/workflows/main.yml/badge.svg)](https://github.com/fajarutamaa/backend-challenge-7/actions/workflows/main.yml)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/fajarutamaa/backend-challenge-7/blob/main/.gitignore)
 
 ## Installation Guide
@@ -16,7 +17,13 @@ Install all package dependencies:
 
 Compile and hot-reload for development:
 
-      npm run dev
+      npm start
+
+## Getting Started
+
+this project is running on Railway App :
+
+[![Railway Badge](https://img.shields.io/badge/Railway-0B0D0E?logo=railway&logoColor=fff&style=for-the-badge)](https://backend-challenge-7.up.railway.app/)
 
 ## Environment Variables Setting
 

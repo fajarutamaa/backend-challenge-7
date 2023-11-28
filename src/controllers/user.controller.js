@@ -1,6 +1,7 @@
 const { ResponseTemplate } = require('../helpers/resp.helper')
 const { InternalServerError } = require('../server/server.error')
 const { PrismaClient } = require('@prisma/client')
+const imagekit = require('../libs/imagekit')
 
 const prisma = new PrismaClient
 
@@ -86,12 +87,16 @@ async function ViewProfile(req, res) {
 
 async function ChangePhoto(req, res) {
 
-    const imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+    const fileString = req.file.buffer.toString('base64')
+    const uploadImage = await imagekit.upload({
+        fileName: req.file.originalname,
+        file: fileString
+    })
 
     try {
         const changePhoto = await prisma.users.update({
             where: { id: req.users.id },
-            data: { profile_photo: imageUrl },
+            data: { profile_photo: uploadImage.url },
             select: {
                 username: true,
                 profile_photo: true,
